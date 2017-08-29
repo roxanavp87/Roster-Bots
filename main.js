@@ -115,15 +115,6 @@
             }
             attr[random(0,2)] += numbers[i] % 3;  //remainder
             bots[i] = new Bot(it.next(), attr[0], attr[1], attr[2]);
-
-            // var Bot = {
-            //     name: names[i],
-            //     speed: attr[0],
-            //     strength: attr[1],
-            //     agility: attr[2]
-            // };
-            //
-            // bots[i] = Object.create(Bot);
             console.log(numbers[i] + ", " + attr[0]+ ", " + attr[1]+ ", " + attr[2])
         }
         return bots;
@@ -134,22 +125,49 @@
 
 
     var $starters = $('.starters');
+    var $substitutes = $('.substitutes');
+
     function printBots() {
         var bots = createBots();
         // console.log(bots);
-        var content = "";
+        var content = "", sideContent = "";
 
-        bots.forEach(function (bot) {
-            content += '<div class="col-sm-2 col-md-2">';
-            content += '<div class="robot-thumbnail">';
-            content += '<h3 class="robot-name">' + bot.name.value + '</h3>';
-            content += '<img src="img/bot.jpg" class="img-rounded img-responsive robot-img" alt="robot">';
-            content += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
-            content += '</div>';
-            content += '</div>';
+        bots.forEach(function (bot, index) {
+            if(index < 10) {
+                if(index === 4 || index === 5) {
+                    content += '<div class="col-sm-0 col-md-1">';
+                    content += '</div>';
+                }
+                content += '<div class="col-sm-2 col-md-2">';
+                content += '<div class="robot-thumbnail">';
+                content += '<h3 class="robot-name">' + bot.name.value + '</h3>';
+                content += '<img src="img/starters.jpg" class="img-rounded img-responsive robot-img" alt="robot">';
+                content += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
+                content += '</div>';
+                content += '</div>';
+
+                if(index === 1|| index === 4 || index === 7) {
+                    content += '<div class="col-sm-0 col-md-4">';
+                    content += '</div>';
+                }
+                if(index === 4 || index === 5) {
+                    content += '<div class="col-sm-0 col-md-1">';
+                    content += '</div>';
+                }
+            } else {
+                sideContent += '<div class="col-sm-12">';
+                sideContent += '<div class="robot-thumbnail">';
+                sideContent += '<h3 class="robot-name">' + bot.name.value + '</h3>';
+                sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img" alt="robot">';
+                sideContent += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
+                sideContent += '</div>';
+                sideContent += '</div>';
+            }
+
         });
 
         $starters.html(content);
+        $substitutes.html(sideContent);
     }
 
     printBots();

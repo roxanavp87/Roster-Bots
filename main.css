@@ -1,3 +1,8 @@
+.main {
+    display: flex;
+    justify-content: space-around;
+}
+
 .starters {
     width: 80%;
     background-image: url("img/soccer_field.jpg");
@@ -15,12 +20,12 @@
     justify-content: center;
     flex-direction: column;
     border: 0.15vw solid #67544d;
-    margin: 1vw auto;
+    margin: 0.5vw auto;
 }
 
 .robot-img {
     width: 10vw;
-    margin: 1vw auto;
+    margin: 0.5vw auto;
 }
 
 .robot-name {
