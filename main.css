@@ -1,0 +1,46 @@
+.starters {
+    width: 80%;
+    background-image: url("img/soccer_field.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.substitutes {
+    width: 10%;
+}
+
+
+.robot-thumbnail {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 0.15vw solid #67544d;
+    margin: 1vw auto;
+}
+
+.robot-img {
+    width: 10vw;
+    margin: 1vw auto;
+}
+
+.robot-name {
+    text-align: center;
+    background-color: #560e00;
+    color: whitesmoke;
+    font-size: 20px;
+    margin: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.robot-scores {
+    margin: auto;
+    background-color: #560e00;
+    color: whitesmoke;
+    font-size: 18px;
+    border: 1px solid #67544d;
+}
+
+.img-rounded {
+    border-radius: 50%;
+}

@@ -64,10 +64,6 @@
         return seq;
     }
 
-
-
-    // $('#bots-names').html(names);
-
     function generateNumbers() {
         /**
          * Generate 15 numbers where the total sum not exceed 175
@@ -92,10 +88,15 @@
             }
             possibleValues.splice(rand, 1);
         }
+        numbers.sort(function(a, b){return b - a});
+
+        numbers.forEach(function (element) {
+            console.log(element);
+        });
         return numbers;
     }
 
-    // var numbers = generateNumbers();
+    var numbers = generateNumbers();
     // numbers.forEach(function (element) {
     //     console.log(element);
     // });
@@ -123,14 +124,35 @@
             // };
             //
             // bots[i] = Object.create(Bot);
-            // console.log(numbers[i] + ", " + attr[0]+ ", " + attr[1]+ ", " + attr[2])
+            console.log(numbers[i] + ", " + attr[0]+ ", " + attr[1]+ ", " + attr[2])
         }
         return bots;
     }
 
-    var bots = createBots();
-    console.log(bots);
+    // var bots = createBots();
+    // console.log(bots);
 
+
+    var $starters = $('.starters');
+    function printBots() {
+        var bots = createBots();
+        // console.log(bots);
+        var content = "";
+
+        bots.forEach(function (bot) {
+            content += '<div class="col-sm-2 col-md-2">';
+            content += '<div class="robot-thumbnail">';
+            content += '<h3 class="robot-name">' + bot.name.value + '</h3>';
+            content += '<img src="img/bot.jpg" class="img-rounded img-responsive robot-img" alt="robot">';
+            content += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
+            content += '</div>';
+            content += '</div>';
+        });
+
+        $starters.html(content);
+    }
+
+    printBots();
 
 
 
