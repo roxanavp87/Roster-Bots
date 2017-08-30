@@ -18,9 +18,42 @@
     }
 
 
-    function generateName() {
+    function createBots() {
+        var bots = [];
+        var names = generateAlphanumericSequences(15);
+        var it = names.values();
+        var numbers = generateScoreAttributes();
+        var attr = [];  // attr[0]=speed, attr[1]=strength, attr[2]=agility;
+        for(var i=0; i<numbers.length; i++) {
+            for(var j=0; j<3; j++) {
+                attr[j] = Math.floor(numbers[i]/3); //quotient
+            }
+            attr[random(0,2)] += numbers[i] % 3;  //remainder
+            bots[i] = new Bot(it.next(), attr[0], attr[1], attr[2]);
+            // console.log(numbers[i] + ", " + attr[0]+ ", " + attr[1]+ ", " + attr[2]);
+        }
+
+        console.log(bots);
+        return bots;
+    }
+
+
+    function generateAlphanumericSequences(numberOfSequences) {
         /**
-         * Generate an alphanumeric sequence formed by 3 unique capital letters and 4 unique numbers like "ABC1234"
+         * Generate N unique alphanumeric sequences, where N = numberOfSequences
+         */
+        var seq = new Set();
+        var names = "";
+        while(seq.size < numberOfSequences) {
+            seq.add(generateOneAlphanumericSequence());
+        }
+        return seq;
+    }
+
+
+    function generateOneAlphanumericSequence() {
+        /**
+         * Generate one alphanumeric sequence formed by 3 unique capital letters and 4 unique numbers like "ABC1234"
          */
         var seq = new Set();
         var name = "";
@@ -40,21 +73,7 @@
     }
 
 
-    function generateUniqueNames(numberOfNames) {
-        /**
-         * Generate unique alphanumeric sequences
-         * numberOfNames = number of names to generate
-         */
-        var seq = new Set();
-        var names = "";
-        while(seq.size < numberOfNames) {
-            seq.add(generateName());
-        }
-        return seq;
-    }
-
-
-    function generateNumbers() {
+    function generateScoreAttributes() {
         /**
          * Generate 15 numbers where the total sum not exceed 175
          */
@@ -86,21 +105,18 @@
         return numbers;
     }
 
-    function createBots() {
-        var bots = [];
-        var names = generateUniqueNames(15);
-        var it = names.values();
-        var numbers = generateNumbers();
-        var attr = [];  // attr[0]=speed, attr[1]=strength, attr[2]=agility;
-        for(var i=0; i<numbers.length; i++) {
-            for(var j=0; j<3; j++) {
-                attr[j] = Math.floor(numbers[i]/3); //quotient
-            }
-            attr[random(0,2)] += numbers[i] % 3;  //remainder
-            bots[i] = new Bot(it.next(), attr[0], attr[1], attr[2]);
-            console.log(numbers[i] + ", " + attr[0]+ ", " + attr[1]+ ", " + attr[2])
-        }
-        return bots;
+
+    function random(min, max) {
+        return Math.round(Math.random()*(max-min)) + min;
+    }
+
+
+    function sum(array) {
+        var sum = 0;
+        array.forEach(function (element) {
+            sum += element;
+        });
+        return sum;
     }
 
 
@@ -150,20 +166,6 @@
 
         $starters.html(content);
         $substitutes.html(sideContent);
-    }
-
-
-    function random(min, max) {
-        return Math.round(Math.random()*(max-min)) + min;
-    }
-
-
-    function sum(array) {
-        var sum = 0;
-        array.forEach(function (element) {
-            sum += element;
-        });
-        return sum;
     }
 
 
