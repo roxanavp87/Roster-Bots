@@ -8,6 +8,19 @@ body {
     top: -2px;
 }
 
+.links {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #3b5998;
+}
+
+.btn {
+    padding: 6px;
+}
+
 .navbar-header {
     position: relative;
 }
@@ -33,7 +46,6 @@ body {
 }
 
 .wrapper-subtitutes {
-    /*width: 7%;*/
     display: flex;
     justify-content: center;
 }

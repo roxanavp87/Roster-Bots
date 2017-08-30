@@ -5,6 +5,11 @@
 (function () {
     "use strict";
 
+    var $starters = $('.starters');
+    var $substitutes = $('.substitutes');
+    var bots;
+
+
     function Bot(name, speed, strength, agility) {
         this.name = name;
         this.speed = speed;
@@ -12,23 +17,11 @@
         this.agility = agility;
     }
 
-    function random(min, max) {
-        return Math.round(Math.random()*(max-min)) + min;
-    }
-
-    function sum(array) {
-        var sum = 0;
-        array.forEach(function (element) {
-           sum += element;
-        });
-        return sum;
-    }
 
     function generateName() {
         /**
          * Generate an alphanumeric sequence formed by 3 unique capital letters and 4 unique numbers like "ABC1234"
          */
-
         var seq = new Set();
         var name = "";
 
@@ -46,6 +39,7 @@
         return name;
     }
 
+
     function generateUniqueNames(numberOfNames) {
         /**
          * Generate unique alphanumeric sequences
@@ -56,13 +50,9 @@
         while(seq.size < numberOfNames) {
             seq.add(generateName());
         }
-
-        // seq.forEach(function (element) {
-        //     console.log(element);
-        //     names += "<p>" + element + "</p>";
-        // });
         return seq;
     }
+
 
     function generateNumbers() {
         /**
@@ -96,13 +86,6 @@
         return numbers;
     }
 
-    var numbers = generateNumbers();
-    // numbers.forEach(function (element) {
-    //     console.log(element);
-    // });
-    //
-    // console.log("total sum" + sum(numbers));
-
     function createBots() {
         var bots = [];
         var names = generateUniqueNames(15);
@@ -120,13 +103,6 @@
         return bots;
     }
 
-    // var bots = createBots();
-    // console.log(bots);
-
-
-    var $starters = $('.starters');
-    var $substitutes = $('.substitutes');
-    var bots;
 
     function printBots() {
         bots = createBots();
@@ -164,7 +140,7 @@
                 sideContent += '<h3 class="robot-name substitutes-name">' + bot.name.value + '</h3>';
                 sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img substitutes-img" alt="robot">';
                 sideContent += '<button type="button" class="btn btn-default btn-block robot-scores substitutes-scores" data-container="body" ' +
-                               'data-toggle="popover" data-placement="left" data-content="Speed: ' + bot.speed + ", " + 'Strength: ' + bot.strength +
+                               'data-toggle="popover" data-placement="bottom" data-content="Speed: ' + bot.speed + ", " + 'Strength: ' + bot.strength +
                                ", " + 'Agility: ' + bot.agility + '">Score: ' + totalScore + '</button>';
                 sideContent += '</div>';
                 sideContent += '</div>';
@@ -177,8 +153,26 @@
     }
 
 
+    function random(min, max) {
+        return Math.round(Math.random()*(max-min)) + min;
+    }
+
+
+    function sum(array) {
+        var sum = 0;
+        array.forEach(function (element) {
+            sum += element;
+        });
+        return sum;
+    }
+
 
     printBots();
+
+
+    $('.links').click(function () {
+        location.reload();
+    });
 
 
 })();
