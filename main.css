@@ -1,3 +1,17 @@
+body {
+    background-color: #caaf9a;
+}
+
+#logo {
+    width: 55px;
+    position: absolute;
+    top: -2px;
+}
+
+.navbar-header {
+    position: relative;
+}
+
 .main {
     display: flex;
     justify-content: space-around;
@@ -67,7 +81,7 @@
 }
 
 .substitutes-name {
-    background-color: #0d4abf;
+    background-color: #3b5998;
 }
 
 .robot-scores {
@@ -79,8 +93,8 @@
 }
 
 .substitutes-scores {
-    background-color: #0d4abf;
-    border: 1px solid #0d4abf;
+    background-color: #3b5998;
+    border: 1px solid #3b5998;
     /*transform: rotate(4deg);*/
 }
 
