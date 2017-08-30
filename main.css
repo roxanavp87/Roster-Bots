@@ -81,6 +81,7 @@
 .substitutes-scores {
     background-color: #0d4abf;
     border: 1px solid #0d4abf;
+    /*transform: rotate(4deg);*/
 }
 
 .img-rounded {

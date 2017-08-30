@@ -126,9 +126,10 @@
 
     var $starters = $('.starters');
     var $substitutes = $('.substitutes');
+    var bots;
 
     function printBots() {
-        var bots = createBots();
+        bots = createBots();
         var content = "", sideContent = "";
         var totalScore;
 
@@ -143,7 +144,9 @@
                 content += '<div class="robot-thumbnail">';
                 content += '<h3 class="robot-name">' + bot.name.value + '</h3>';
                 content += '<img src="img/starters.jpg" class="img-rounded img-responsive robot-img" alt="robot">';
-                content += '<button class="btn btn-default btn-block robot-scores" role="button">Total Score: ' + totalScore + '</button>';
+                content += '<button type="button" class="btn btn-default btn-block robot-scores" data-container="body" ' + 'data-toggle="popover"' +
+                           ' data-placement="bottom" data-content="Speed: ' + bot.speed + ", " + 'Strength: ' + bot.strength +
+                           ", " + 'Agility: ' + bot.agility + '">Total Score: ' + totalScore + '</button>';
                 content += '</div>';
                 content += '</div>';
 
@@ -160,7 +163,9 @@
                 sideContent += '<div class="robot-thumbnail substitutes-thumbnail">';
                 sideContent += '<h3 class="robot-name substitutes-name">' + bot.name.value + '</h3>';
                 sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img substitutes-img" alt="robot">';
-                sideContent += '<button class="btn btn-default btn-block robot-scores substitutes-scores" role="button">Score: ' + totalScore + '</button>';
+                sideContent += '<button type="button" class="btn btn-default btn-block robot-scores substitutes-scores" data-container="body" ' +
+                               'data-toggle="popover" data-placement="left" data-content="Speed: ' + bot.speed + ", " + 'Strength: ' + bot.strength +
+                               ", " + 'Agility: ' + bot.agility + '">Score: ' + totalScore + '</button>';
                 sideContent += '</div>';
                 sideContent += '</div>';
             }
@@ -171,8 +176,13 @@
         $substitutes.html(sideContent);
     }
 
+
+
     printBots();
 
+    // $('.robot-scores').click(function () {
+    //
+    // });
 
 
 
