@@ -155,11 +155,13 @@
                     content += '</div>';
                 }
             } else {
-                sideContent += '<div class="col-sm-12">';
-                sideContent += '<div class="robot-thumbnail">';
-                sideContent += '<h3 class="robot-name">' + bot.name.value + '</h3>';
-                sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img" alt="robot">';
-                sideContent += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
+                sideContent += '<div class="col-sm-12 chair">';
+                sideContent += '<div class="robot-thumbnail substitutes-thumbnail">';
+                sideContent += '<h3 class="robot-name substitutes-name">' + bot.name.value + '</h3>';
+                // sideContent += '<div class="chair">';
+                sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img substitutes-img" alt="robot">';
+                // sideContent += '</div>';
+                sideContent += '<button class="btn btn-default btn-block robot-scores substitutes-scores" role="button">Scores</button>';
                 sideContent += '</div>';
                 sideContent += '</div>';
             }
