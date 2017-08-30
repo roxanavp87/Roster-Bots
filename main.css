@@ -14,6 +14,7 @@ body {
 
 .main {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
@@ -32,7 +33,7 @@ body {
 }
 
 .wrapper-subtitutes {
-    width: 7%;
+    /*width: 7%;*/
     display: flex;
     justify-content: center;
 }
@@ -43,6 +44,9 @@ body {
 }
 
 .substitutes {
+    margin-top: 1vw;
+    display: flex;
+    justify-content: space-between;
 }
 
 
@@ -56,9 +60,9 @@ body {
 
 .substitutes-thumbnail {
     width: 70%;
-    margin-right: 5%;
-    transform: rotate(-4deg);
     border: 0;
+    margin: auto;
+    margin-right: 5%;
 }
 
 .robot-img {
@@ -95,7 +99,6 @@ body {
 .substitutes-scores {
     background-color: #3b5998;
     border: 1px solid #3b5998;
-    /*transform: rotate(4deg);*/
 }
 
 .img-rounded {
@@ -103,8 +106,9 @@ body {
 }
 
 .chair {
-    background-image: url("img/chair.jpg");
+    background-image: url("img/chair.png");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0;
+    margin: 1vw;
 }

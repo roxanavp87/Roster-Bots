@@ -159,7 +159,7 @@
                     content += '</div>';
                 }
             } else {
-                sideContent += '<div class="col-sm-12 chair">';
+                sideContent += '<div class="chair">';
                 sideContent += '<div class="robot-thumbnail substitutes-thumbnail">';
                 sideContent += '<h3 class="robot-name substitutes-name">' + bot.name.value + '</h3>';
                 sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img substitutes-img" alt="robot">';
@@ -179,11 +179,6 @@
 
 
     printBots();
-
-    // $('.robot-scores').click(function () {
-    //
-    // });
-
 
 
 })();
