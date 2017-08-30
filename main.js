@@ -129,10 +129,11 @@
 
     function printBots() {
         var bots = createBots();
-        // console.log(bots);
         var content = "", sideContent = "";
+        var totalScore;
 
         bots.forEach(function (bot, index) {
+            totalScore = bot.speed + bot.strength + bot.agility;
             if(index < 10) {
                 if(index === 4 || index === 5) {
                     content += '<div class="col-sm-0 col-md-1">';
@@ -142,7 +143,7 @@
                 content += '<div class="robot-thumbnail">';
                 content += '<h3 class="robot-name">' + bot.name.value + '</h3>';
                 content += '<img src="img/starters.jpg" class="img-rounded img-responsive robot-img" alt="robot">';
-                content += '<button class="btn btn-default btn-block robot-scores" role="button">Scores</button>';
+                content += '<button class="btn btn-default btn-block robot-scores" role="button">Total Score: ' + totalScore + '</button>';
                 content += '</div>';
                 content += '</div>';
 
@@ -158,10 +159,8 @@
                 sideContent += '<div class="col-sm-12 chair">';
                 sideContent += '<div class="robot-thumbnail substitutes-thumbnail">';
                 sideContent += '<h3 class="robot-name substitutes-name">' + bot.name.value + '</h3>';
-                // sideContent += '<div class="chair">';
                 sideContent += '<img src="img/substitutes.png" class="img-rounded img-responsive robot-img substitutes-img" alt="robot">';
-                // sideContent += '</div>';
-                sideContent += '<button class="btn btn-default btn-block robot-scores substitutes-scores" role="button">Scores</button>';
+                sideContent += '<button class="btn btn-default btn-block robot-scores substitutes-scores" role="button">Score: ' + totalScore + '</button>';
                 sideContent += '</div>';
                 sideContent += '</div>';
             }
